@@ -5,7 +5,10 @@ import { ReactComponent as Logo } from "../../assets/4.3 crown.svg.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 
-const Header = ({ currentUser }) => {
+import CartIcon from ".././cart-icon/cart-icon";
+import CartDropdown from "../card-dropdown/cart-dropdown";
+
+const Header = ({ currentUser, hidden }) => {
   return (
     <nav>
       <Link to="/" className={styles.logoContainer}>
@@ -13,7 +16,7 @@ const Header = ({ currentUser }) => {
       </Link>
       <ul className={styles.options}>
         <li className={styles.option}>
-          <Link to="/shop">SHOP</Link>
+          <Link to="/shop">COLLECTION</Link>
         </li>
         <li className={styles.option}>
           <Link to="/contact">CONTACT</Link>
@@ -27,13 +30,18 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <li>
+          <CartIcon className={styles.options} />
+        </li>
       </ul>
+      {hidden ? null : <CartDropdown />}
     </nav>
   );
 };
 
-const mapStateProps = (rootReducer) => ({
-  currentUser: rootReducer.user.currentUser,
+const mapStateProps = ({ user, toggleDropdown }) => ({
+  currentUser: user.currentUser,
+  hidden: toggleDropdown.hidden,
 });
 
 export default connect(mapStateProps)(Header);
