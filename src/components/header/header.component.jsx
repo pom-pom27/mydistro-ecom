@@ -39,9 +39,9 @@ const Header = ({ currentUser, hidden }) => {
   );
 };
 
-const mapStateProps = ({ user, toggleDropdown }) => ({
+const mapStateProps = ({ user, cart }) => ({
   currentUser: user.currentUser,
-  hidden: toggleDropdown.hidden,
+  hidden: cart.hidden,
 });
 
 export default connect(mapStateProps)(Header);

@@ -4,7 +4,7 @@ import styles from "./shop.module.scss";
 import CollectionPreview from "../../components/collection_preview/collection-preview.component";
 
 const ShopPage = () => {
-  const [collections, setCollections] = useState(SHOP_DATA);
+  const [collections] = useState(SHOP_DATA);
 
   return (
     <div className={styles.shopPage}>

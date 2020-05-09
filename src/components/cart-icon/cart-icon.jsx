@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./cart-icon.module.scss";
 import { ReactComponent as ShoppingCart } from "../../assets/shopping-bag.svg";
 import { connect } from "react-redux";
-import { toggleDropdown } from "../../redux/cart/cart.action";
+import { toggleCartDropdown } from "../../redux/cart/cart.action";
 
 const CartIcon = ({ toggleDropdown }) => (
   <div className={styles.cartIcon} onClick={toggleDropdown}>
@@ -13,7 +13,7 @@ const CartIcon = ({ toggleDropdown }) => (
 
 const mapDispatchToProps = (dispatch) => ({
   toggleDropdown: () => {
-    dispatch(toggleDropdown());
+    dispatch(toggleCartDropdown());
   },
 });
 
