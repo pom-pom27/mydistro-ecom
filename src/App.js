@@ -10,6 +10,7 @@ import { setCurrentUser } from "./redux/user/user.action";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./redux/user/user.selectors";
+import Checkout from "./pages/checkout/checkout";
 
 const App = ({ setCurrentUser, currentUser }) => {
   useEffect(() => {
@@ -31,7 +32,7 @@ const App = ({ setCurrentUser, currentUser }) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [setCurrentUser]);
 
   return (
     <div>
@@ -44,6 +45,7 @@ const App = ({ setCurrentUser, currentUser }) => {
           path="/signin"
           render={() => (currentUser ? <Redirect to="/" /> : <SignInAndUp />)}
         ></Route>
+        <Route exact path="/checkout" component={Checkout}></Route>
       </Switch>
     </div>
   );
