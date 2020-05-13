@@ -10,7 +10,7 @@ const config = {
   projectId: "mydistro-db",
   storageBucket: "mydistro-db.appspot.com",
   messagingSenderId: "1054629792958",
-  appId: "1:1054629792958:web:84b314f817f450bcc122ef",
+  appId: process.env.REACT_APP_FIREBASE_API_KEY,
   measurementId: "G-G2VY0XFRND",
 };
 

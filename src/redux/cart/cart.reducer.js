@@ -24,6 +24,14 @@ const CartReducer = (state = INITIAL_STATE, action) => {
         cartItems: groupingCartItems(state.cartItems, action.payload),
       };
 
+    case CartType.REMOVE_ITEM_FROM_CHECKOUT:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload.id
+        ),
+      };
+
     default:
       return state;
   }

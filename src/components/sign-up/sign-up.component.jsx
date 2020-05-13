@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { signUpSc, titleSc } from "./sign-up.module.scss";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -23,12 +23,7 @@ const SignUp = () => {
         email,
         password
       );
-      await createUserProfile(user, {displayName});
-
-      setDisplayName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      await createUserProfile(user, { displayName });
     } catch (error) {
       console.error(error);
     }
