@@ -4,13 +4,13 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyChEND1qmwugjPyYLUn_KcIP-hV8FOxwrE",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "mydistro-db.firebaseapp.com",
   databaseURL: "https://mydistro-db.firebaseio.com",
   projectId: "mydistro-db",
   storageBucket: "mydistro-db.appspot.com",
   messagingSenderId: "1054629792958",
-  appId: process.env.REACT_APP_FIREBASE_API_KEY,
+  appId: "1:1054629792958:web:84b314f817f450bcc122ef",
   measurementId: "G-G2VY0XFRND",
 };
 
