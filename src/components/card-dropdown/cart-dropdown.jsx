@@ -8,8 +8,9 @@ import CartItem from "../cart-item/cart-item";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
+import { toggleCartDropdown } from "../../redux/cart/cart.action";
 
-const CartDropdown = ({ cartItems, history }) => (
+const CartDropdown = ({ cartItems, history, dispatch }) => (
   <div className={styles.cartDropdown}>
     <div className={styles.cartItems}>
       {cartItems.length ? (
@@ -21,7 +22,12 @@ const CartDropdown = ({ cartItems, history }) => (
       )}
     </div>
 
-    <CustomButton onClick={() => history.push("/checkout")}>
+    <CustomButton
+      onClick={() => {
+        history.push("/checkout");
+        dispatch(toggleCartDropdown());
+      }}
+    >
       CHECKOUT NOW
     </CustomButton>
   </div>
@@ -30,5 +36,5 @@ const CartDropdown = ({ cartItems, history }) => (
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
 });
-
+//if u not explicitly create dispatch method connect automatically pas dispatch into props
 export default withRouter(connect(mapStateToProps)(CartDropdown));
