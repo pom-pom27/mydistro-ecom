@@ -13,3 +13,8 @@ export const removeCartItem = (item) => ({
   type: CartType.REMOVE_ITEM_FROM_CHECKOUT,
   payload: item,
 });
+
+export const removeItemCheckout = (item) => ({
+  type: CartType.REMOVE_CART_ITEM_CHECKOUT,
+  payload: item,
+});
